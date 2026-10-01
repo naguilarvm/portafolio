@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nicolás Aguilar · Analista de Operaciones & BI</title>
+<meta name="description" content="Portafolio de Nicolás Aguilar: administración de empresas, operaciones, Looker Studio, SQL y automatización con IA.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#top">NA<span>.</span></a>
+  <nav>
+    <a href="#match">Match vacante</a>
+    <a href="#simulador">Simulador</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#stack">Stack</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <button id="theme" aria-label="Cambiar tema">◐</button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="eyebrow">Santiago, Chile · Administración de Empresas</p>
+    <h1>Hola, soy <em>Nicolás Aguilar</em>.<br>Convierto operaciones en <span id="typed"></span><i class="caret"></i></h1>
+    <p class="lead">Experiencia en operaciones de servicios y procesos financieros en retail (IKEA Chile, Colombia y Perú). Coordino proveedores, construyo dashboards en Looker Studio, escribo SQL y automatizo con Power Automate e IA.</p>
+    <div class="cta">
+      <a class="btn primary" href="#simulador">Probar el simulador de agenda ↓</a>
+      <a class="btn" href="mailto:nicoaguilarv15@gmail.com?subject=Postulación%20Analista%20de%20Inbound%20y%20Retiros">Escríbeme</a>
+    </div>
+    <div class="stats">
+      <div><b data-count="100" data-suffix="+">0</b><span>colaboradores usando mi app web con IA</span></div>
+      <div><b data-count="70">0</b><span>colaboradores capacitados</span></div>
+      <div><b data-count="3">0</b><span>países: Chile, Colombia y Perú</span></div>
+      <div><b data-count="2">0</b><span>años en operaciones y finanzas</span></div>
+    </div>
+  </section>
+
+  <section id="match">
+    <h2>Mi match con la vacante</h2>
+    <p class="sub">Analista de Inbound y Retiros · Mercado Envíos. Toca cada requisito para ver mi evidencia.</p>
+    <div class="matchwrap">
+      <div class="meter"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="bg"/><circle id="ring" cx="60" cy="60" r="52" class="fg"/></svg><div><b id="pct">0%</b><span>requisitos cubiertos</span></div></div>
+      <ul id="reqs" class="reqs"></ul>
+    </div>
+  </section>
+
+  <section id="simulador">
+    <h2>Simulador de agenda de inbound</h2>
+    <p class="sub">La vacante pide gestionar la agenda de recepción según demanda proyectada, definir márgenes de seguridad y detectar problemas a tiempo. Así lo pensaría. <small>(Datos sintéticos de demostración.)</small></p>
+    <div class="sim">
+      <div class="controls">
+        <label>Demanda proyectada del día <output id="oD"></output><input id="D" type="range" min="200" max="3000" step="50" value="1400"></label>
+        <label>Capacidad por franja horaria <output id="oC"></output><input id="C" type="range" min="50" max="400" step="10" value="150"></label>
+        <label>Margen de seguridad <output id="oM"></output><input id="M" type="range" min="0" max="40" step="5" value="15"></label>
+        <div class="row">
+          <button class="btn" id="surge">⚡ Simular imprevisto (+25% en punta)</button>
+          <button class="btn primary" id="opt">Optimizar agenda</button>
+          <button class="btn ghost" id="reset">Reiniciar</button>
+        </div>
+        <div class="kpis">
+          <div><span>Ocupación media</span><b id="kOcc">–</b></div>
+          <div><span>Franjas en riesgo</span><b id="kRisk">–</b></div>
+          <div><span>Disponibilidad</span><b id="kAvail">–</b></div>
+          <div><span>Unidades sin cupo</span><b id="kOver">–</b></div>
+        </div>
+        <ul id="alerts" class="alerts"></ul>
+      </div>
+      <div class="chartbox">
+        <svg id="chart" viewBox="0 0 640 340" role="img" aria-label="Demanda vs capacidad por franja"></svg>
+        <div class="legend"><i class="ok"></i>&lt;80%<i class="warn"></i>80–100%<i class="bad"></i>sobre capacidad<i class="line"></i>capacidad efectiva</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <h2>Experiencia</h2>
+    <div class="timeline">
+      <article>
+        <time>Dic 2025 – Actualidad</time>
+        <h3>Services Specialist <small>IKEA Chile, Colombia y Perú</small></h3>
+        <ul>
+          <li>Coordinación de capacidad de proveedores de armado, medición e instalación, y resolución de incidencias con áreas internas.</li>
+          <li>Seguimiento de indicadores y SLA mediante reportes y dashboards en Looker Studio.</li>
+          <li>Desarrollo e implementación de una app web con IA generativa para gestionar proyectos de cocinas en Chile y Colombia, evolucionando una solución inicial en Power Apps; alcance de más de 100 colaboradores.</li>
+          <li>Automatización de flujos y reportería con Power Automate. Capacitación de 70 colaboradores en la herramienta.</li>
+        </ul>
+      </article>
+      <article>
+        <time>Sep 2024 – Dic 2025</time>
+        <h3>Finance Administrative <small>IKEA</small></h3>
+        <ul>
+          <li>Gestión y seguimiento del proceso de compras de tiendas de Chile mediante SAP.</li>
+          <li>Automatizaciones y dashboards en Looker Studio para dar trazabilidad al proceso de compras de Colombia.</li>
+          <li>Cálculo y validación de incentivos mediante consultas SQL; facturación, notas de cobro y seguimiento financiero.</li>
+        </ul>
+      </article>
+      <article>
+        <time>Nov 2023 – Sep 2024</time>
+        <h3>Encargado de Licitaciones y Compras Públicas <small>Marangunic Hermanos · Punta Arenas</small></h3>
+        <ul>
+          <li>Proceso completo de licitaciones en Mercado Público, con cotizaciones, plazos y especificaciones técnicas.</li>
+          <li>Mejora de tiempos de postulación y de la organización del proceso de compra.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="stack">
+    <h2>Stack y formación</h2>
+    <div class="chips" id="chips"></div>
+    <div class="edu">
+      <div><b>Universidad Tecnológica de Chile</b><span>Administración de Empresas · 2023 – 2025</span></div>
+      <div><b>Cursos</b><span>Six Sigma (LinkedIn) · Metodologías Ágiles (Santander Open Academy) · Análisis Financiero (PUC)</span></div>
+      <div><b>Idiomas</b><span>Español nativo · Inglés intermedio-avanzado (TOEFL ITP)</span></div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <h2>Conversemos</h2>
+    <p class="sub">Me encantaría aportar a Mercado Envíos con análisis, dashboards y automatización con IA.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:nicoaguilarv15@gmail.com">nicoaguilarv15@gmail.com</a>
+      <a class="btn" href="https://wa.me/56942292085" target="_blank" rel="noopener">WhatsApp +56 9 4229 2085</a>
+    </div>
+  </section>
+</main>
+<footer>© <span id="y"></span> Nicolás Aguilar</footer>
+<script src="app.js"></script>
+</body>
+</html>
