@@ -12,7 +12,6 @@
   <a class="logo" href="#top">NA<span>.</span></a>
   <nav>
     <a href="#match">Match vacante</a>
-    <a href="#simulador">Simulador</a>
     <a href="#experiencia">Experiencia</a>
     <a href="#stack">Stack</a>
     <a href="#contacto">Contacto</a>
@@ -26,7 +25,7 @@
     <h1>Hola, soy <em>Nicolás Aguilar</em>.<br>Convierto operaciones en <span id="typed"></span><i class="caret"></i></h1>
     <p class="lead">Experiencia en operaciones de servicios y procesos financieros en retail (IKEA Chile, Colombia y Perú). Coordino proveedores, construyo dashboards en Looker Studio, escribo SQL y automatizo con Power Automate e IA.</p>
     <div class="cta">
-      <a class="btn primary" href="#simulador">Probar el simulador de agenda ↓</a>
+      <a class="btn primary" href="#match">Mi match con la vacante ↓</a>
       <a class="btn" href="mailto:nicoaguilarv15@gmail.com?subject=Postulación%20Analista%20de%20Inbound%20y%20Retiros">Escríbeme</a>
     </div>
     <div class="stats">
@@ -43,34 +42,6 @@
     <div class="matchwrap">
       <div class="meter"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="bg"/><circle id="ring" cx="60" cy="60" r="52" class="fg"/></svg><div><b id="pct">0%</b><span>requisitos cubiertos</span></div></div>
       <ul id="reqs" class="reqs"></ul>
-    </div>
-  </section>
-
-  <section id="simulador">
-    <h2>Simulador de agenda de inbound</h2>
-    <p class="sub">La vacante pide gestionar la agenda de recepción según demanda proyectada, definir márgenes de seguridad y detectar problemas a tiempo. Así lo pensaría. <small>(Datos sintéticos de demostración.)</small></p>
-    <div class="sim">
-      <div class="controls">
-        <label>Demanda proyectada del día <output id="oD"></output><input id="D" type="range" min="200" max="3000" step="50" value="1400"></label>
-        <label>Capacidad por franja horaria <output id="oC"></output><input id="C" type="range" min="50" max="400" step="10" value="150"></label>
-        <label>Margen de seguridad <output id="oM"></output><input id="M" type="range" min="0" max="40" step="5" value="15"></label>
-        <div class="row">
-          <button class="btn" id="surge">⚡ Simular imprevisto (+25% en punta)</button>
-          <button class="btn primary" id="opt">Optimizar agenda</button>
-          <button class="btn ghost" id="reset">Reiniciar</button>
-        </div>
-        <div class="kpis">
-          <div><span>Ocupación media</span><b id="kOcc">–</b></div>
-          <div><span>Franjas en riesgo</span><b id="kRisk">–</b></div>
-          <div><span>Disponibilidad</span><b id="kAvail">–</b></div>
-          <div><span>Unidades sin cupo</span><b id="kOver">–</b></div>
-        </div>
-        <ul id="alerts" class="alerts"></ul>
-      </div>
-      <div class="chartbox">
-        <svg id="chart" viewBox="0 0 640 340" role="img" aria-label="Demanda vs capacidad por franja"></svg>
-        <div class="legend"><i class="ok"></i>&lt;80%<i class="warn"></i>80–100%<i class="bad"></i>sobre capacidad<i class="line"></i>capacidad efectiva</div>
-      </div>
     </div>
   </section>
 
