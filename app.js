@@ -38,24 +38,6 @@ function count(el) {
 }
 document.querySelectorAll('section, .stats').forEach((el) => { el.classList.add('reveal'); io.observe(el); });
 
-// Match con la vacante
-const reqs = [
-  ['Profesional en Administración de Empresas o afines', 'Administración de Empresas, Universidad Tecnológica de Chile (2023–2025).'],
-  ['Experiencia en roles analíticos, ideal operaciones o retail', 'Services Specialist y Finance Administrative en IKEA: indicadores, SLA, coordinación de proveedores y procesos de compras en retail.'],
-  ['Dominio de Excel', 'Excel nivel avanzado, usado en reportería, cálculo de incentivos y validaciones.'],
-  ['SQL o herramientas de BI (Tableau, Looker)', 'Looker Studio en producción (SLA y trazabilidad de compras), Power BI y SQL intermedio para cálculo y validación de incentivos.'],
-  ['Conocimientos generales de Inteligencia Artificial', 'Desarrollé una app web con IA generativa usada por más de 100 colaboradores. Uso Claude Code, Codex, Gemini y Google AI Studio.'],
-  ['Desarrollar herramientas, dashboards y alertas con IA', 'Evolucioné una solución en Power Apps a una app web con IA; automaticé flujos y reportes con Power Automate.'],
-  ['Coordinarse con operación y transporte', 'Coordino proveedores de armado, medición e instalación y resuelvo incidencias con áreas internas en 3 países.'],
-];
-$('#reqs').innerHTML = reqs.map(([r, e]) =>
-  `<li><div class="h"><i>✔</i>${r}</div><div class="ev">${e}</div></li>`).join('');
-$('#reqs').onclick = (e) => e.target.closest('li')?.classList.toggle('open');
-const pct = Math.round((reqs.length / reqs.length) * 100);
-new IntersectionObserver((es, o) => es[0].isIntersecting && (
-  $('#ring').style.strokeDashoffset = 327 * (1 - pct / 100),
-  $('#pct').textContent = pct + '%', o.disconnect()), { threshold: 0.4 }).observe($('.meter'));
-
 // Stack
 ['Power BI', 'Excel (avanzado)', 'SQL', 'Looker Studio', 'SAP S/4HANA', 'Microsoft Dynamics NAV', 'Power Apps', 'Power Automate', 'SharePoint', 'Claude Code', 'Codex', 'Gemini', 'Google AI Studio', 'Six Sigma', 'Metodologías ágiles', 'Análisis financiero']
   .forEach((s) => $('#chips').insertAdjacentHTML('beforeend', `<span class="chip">${s}</span>`));
