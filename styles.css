@@ -238,3 +238,27 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]){--page:#0b0d12}}
 .hero{padding-bottom:110px}
 .hero-bg{bottom:-80px;border-bottom:0;background:linear-gradient(180deg,#0a1020 0,#0a1020 calc(100% - 190px),color-mix(in srgb,#0a1020 62%,var(--page)) calc(100% - 130px),color-mix(in srgb,#0a1020 22%,var(--page)) calc(100% - 65px),var(--page) 100%)}
+
+/* v2: horizonte azul limpio (sin gris) y sin red dentro de la zona de transición */
+:root{--h1:#15234c;--h2:#34498c;--h3:#8ea1d8;--h4:#dfe6f7}
+:root[data-theme=dark]{--h1:#0d1530;--h2:#0c1224;--h3:#0b0f1c;--h4:#0b0e18}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--h1:#0d1530;--h2:#0c1224;--h3:#0b0f1c;--h4:#0b0e18}}
+.hero-bg{background:linear-gradient(in oklab to bottom,#0a1020 0,#0a1020 calc(100% - 190px),var(--h1) calc(100% - 150px),var(--h2) calc(100% - 105px),var(--h3) calc(100% - 60px),var(--h4) calc(100% - 25px),var(--page) 100%)}
+.hero-bg .grid{bottom:200px}
+.hero-bg .g1,.hero-bg .g2{max-height:calc(100% - 200px)}
+
+/* v3: transición larga y suave (≈300px), tonos apagados */
+:root{--h1:#141f45;--h2:#2b3a6b;--h3:#5d6c9c;--h4:#a3afd2;--h5:#dde2f1;--h6:#f1f3fa}
+:root[data-theme=dark]{--h1:#0c1330;--h2:#0c1226;--h3:#0b0f1d;--h4:#0b0e1a;--h5:#0b0d15;--h6:#0b0d13}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--h1:#0c1330;--h2:#0c1226;--h3:#0b0f1d;--h4:#0b0e1a;--h5:#0b0d15;--h6:#0b0d13}}
+.hero{padding-bottom:180px}
+.hero-bg{bottom:-120px;background:linear-gradient(in oklab to bottom,#0a1020 0,#0a1020 calc(100% - 300px),var(--h1) calc(100% - 255px),var(--h2) calc(100% - 205px),var(--h3) calc(100% - 150px),var(--h4) calc(100% - 95px),var(--h5) calc(100% - 50px),var(--h6) calc(100% - 20px),var(--page) 100%)}
+.hero-bg .grid{bottom:310px}
+.hero-bg .g1,.hero-bg .g2{max-height:calc(100% - 310px)}
+
+/* v4: cierre curvo limpio, sin degradado intermedio */
+.hero{padding-bottom:100px}
+.hero-bg{bottom:0;background:#0a1020;border-radius:0 0 50% 50%/0 0 72px 72px}
+.hero-bg .grid{bottom:0}
+.hero-bg .g1,.hero-bg .g2{max-height:none}
+@media(max-width:700px){.hero-bg{border-radius:0 0 50% 50%/0 0 34px 34px}.hero{padding-bottom:64px}}
