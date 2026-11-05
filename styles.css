@@ -132,3 +132,5 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .mock-chip{font-size:12px;margin-top:16px}.mock-note{font-size:12px}
 }
 @media(max-width:1099px){.mock-steps{display:flex;overflow-x:auto}}
+.tools span{display:inline-flex;align-items:center;gap:6px;padding:5px 12px 5px 8px;font-size:13px}
+.tools img{flex:none}
