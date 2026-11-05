@@ -522,3 +522,6 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .feature-tools .metrics{justify-content:center;gap:14px 56px;margin:0 0 24px;text-align:center}
 .feature-tools .metrics b{font-size:34px}
 .feature-tools .metrics span{font-size:13px}
+/* herramientas apiladas y centradas bajo los indicadores */
+.feature-tools .phases{flex-direction:column;align-items:center;gap:16px}
+.feature-tools .phases>div{display:flex;flex-direction:column;align-items:center}
