@@ -525,3 +525,45 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 /* herramientas apiladas y centradas bajo los indicadores */
 .feature-tools .phases{flex-direction:column;align-items:center;gap:16px}
 .feature-tools .phases>div{display:flex;flex-direction:column;align-items:center}
+
+/* tarjetas de proyecto a todo el ancho */
+.projects{grid-template-columns:1fr}
+.project.row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-rows:auto auto 1fr;column-gap:44px;align-items:start}
+.project.row .co{grid-area:1/1}
+.project.row h3{grid-area:2/1}
+.project.row .tools{grid-area:3/1;align-self:end;margin-top:12px;padding-top:0}
+.project.row dl{grid-area:1/2/4/2;margin:0}
+.project.row.has-chart{grid-template-rows:auto auto auto 1fr}
+.project.row.has-chart dl{grid-area:3/1}
+.project.row.has-chart .tools{grid-area:4/1}
+.project.row.has-chart .pw-result{grid-area:1/2/5/2}
+.pw-label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.kpis2{display:flex;flex-wrap:wrap;gap:12px 36px;margin:10px 0 16px}
+.kpis2 b{display:block;font-size:28px;letter-spacing:-.03em;line-height:1.1}
+.kpis2 span{font-size:12.5px;color:var(--mut)}
+.chart{margin:0;padding:18px 18px 12px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--acc-soft),transparent 75%)}
+.chart figcaption b{display:block;font-size:14px}
+.chart figcaption span{display:block;margin:2px 0 14px;font-size:12.5px;color:var(--mut)}
+.chart .bars{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;align-items:end;height:180px;border-bottom:1px solid var(--line)}
+.chart .col{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
+.chart .val{margin-bottom:5px;font-size:12.5px;font-weight:700}
+.chart .bar{width:100%;max-width:60px;height:0;border-radius:9px 9px 0 0;background:var(--acc);opacity:.55;transition:height 1s cubic-bezier(.2,.8,.2,1)}
+.chart .bar.pk{opacity:1}
+#proyectos.in .chart .bar{height:var(--h)}
+.chart .labels{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-top:8px;text-align:center}
+.chart .labels b{font-size:12.5px;font-weight:600}
+.foot{margin:10px 0 0;font-size:11.5px;color:var(--mut)}
+.stats3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.stats3 div{padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.stats3 b{display:block;font-size:19px;letter-spacing:-.02em}
+.stats3 span{font-size:12px;color:var(--mut);line-height:1.35;display:block}
+@media(max-width:900px){
+.project.row,.project.row.has-chart{display:flex;flex-direction:column}
+.project.row dl{margin-top:4px}
+.project.row .tools{margin-top:14px}
+.pw-result{margin-top:22px}
+.stats3{grid-template-columns:1fr}
+.chart .bars,.chart .labels{gap:6px}
+.chart .val{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.chart .bar{transition:none}}
