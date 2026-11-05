@@ -483,3 +483,6 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .device.ipad.big .mock-fields{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .device.ipad.big .mock-fields div{padding:10px 14px}
 .device.ipad.big .mock-fields b{font-size:15px}
+/* la barra lateral llega hasta el borde inferior de la pantalla */
+.device.ipad .app{padding-bottom:0}
+.device.ipad .rail{align-self:stretch}
