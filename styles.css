@@ -117,3 +117,5 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 @media(max-width:520px){.timeline .co-logo{width:84px;height:38px;top:16px;right:16px;padding:4px}.timeline .job-head h3{padding-right:96px}}
 .timeline .co-logo{width:84px;height:36px;top:18px;right:18px;padding:5px;border-radius:10px}
 @media(max-width:520px){.timeline .co-logo{width:68px;height:30px;top:14px;right:14px;padding:4px}.timeline .job-head h3{padding-right:80px}}
+.btn svg{vertical-align:-3px;margin-right:2px}
+.btn.icon{display:inline-grid;place-items:center;width:44px;height:44px;padding:0}.btn.icon svg{margin:0}.btn.icon:hover{color:#0a66c2}
