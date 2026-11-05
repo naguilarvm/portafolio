@@ -332,3 +332,18 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .myrole{flex-direction:column;gap:4px}
 }
 @media(max-width:900px){.intent{text-align:center}}
+
+/* recomendaciones */
+.recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:20px}
+.rec{position:relative;display:flex;flex-direction:column;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 28px 24px;box-shadow:var(--shadow)}
+.qmark{position:absolute;top:4px;right:22px;font:700 90px/1 Georgia,serif;color:var(--acc-soft);pointer-events:none}
+.rec blockquote{position:relative;margin:0;font-size:16.5px;line-height:1.65;color:var(--ink)}
+.rec footer{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+.avatar{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--bg);font-size:14px;font-weight:700;letter-spacing:.04em}
+.rec footer b{display:block;font-size:15px}
+.rec footer span:not(.avatar){display:block;font-size:13px;color:var(--mut);line-height:1.4}
+.rec footer small{display:block;margin-top:3px;font-size:12px;color:var(--acc);font-weight:600}
+.recs-link{margin:22px 0 0}
+.rec footer{text-align:left;max-width:none;margin:auto 0 0;padding:18px 0 0;font-size:inherit;color:inherit}
+.rec{padding-top:48px}
+.qmark{top:8px;left:26px;right:auto;font-size:68px}
