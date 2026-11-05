@@ -49,7 +49,7 @@ const links=[...document.querySelectorAll(".nav nav a")];
 const spy=new IntersectionObserver((es)=>es.forEach((e)=>{if(e.isIntersecting)links.forEach((a)=>a.classList.toggle("on",a.hash==="#"+e.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
 document.querySelectorAll("section[id]").forEach((s)=>spy.observe(s));
 
-// Demo interactiva I-Kitchen (datos ficticios)
+// Demo I-Kitchen (datos ficticios): iPad + modo pantalla completa
 const kit = {
   kpis: [["Proyectos planificados", 43], ["Total mediciones", 29], ["Compras / despachos", 17], ["Instalaciones", 9]],
   stages: [
@@ -61,22 +61,108 @@ const kit = {
     ["Post venta", "Se cierra el proyecto y se hace seguimiento al cliente.", [["Revisión final", "Pendiente"], ["Satisfacción", "Por consultar"], ["Cierre", "Al completar"]], "Proyecto listo para cerrar"],
   ],
 };
-let ks = 0, kTimer, kStopped = false;
-$("#mkKpis").innerHTML = kit.kpis.map(([l, v]) => `<div><span>${l}</span><b>${v}</b></div>`).join("");
-$("#mkSteps").innerHTML = kit.stages.map(([n], i) => `<button role="tab" data-i="${i}"><i>${i + 1}</i>${n}</button>`).join("");
-function kShow(i) {
-  ks = i;
-  const [n, d, f, chip] = kit.stages[i];
-  document.querySelectorAll("#mkSteps button").forEach((b, k) => { b.classList.toggle("on", k === i); b.classList.toggle("done", k < i); b.setAttribute("aria-selected", k === i); });
-  const p = $("#mkPanel");
-  p.innerHTML = `<h4>Paso ${i + 1} de 6 · ${n}</h4><p>${d}</p><div class="mock-fields">${f.map(([l, v]) => `<div><span>${l}</span><b>${v}</b></div>`).join("")}</div><span class="mock-chip">${chip}</span>`;
-  p.style.animation = "none"; p.offsetHeight; p.style.animation = "";
-}
-$("#mkSteps").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; kStopped = true; clearInterval(kTimer); kShow(+b.dataset.i); };
-kShow(0);
-if (!matchMedia("(prefers-reduced-motion: reduce)").matches)
-  new IntersectionObserver(([e]) => { clearInterval(kTimer); if (e.isIntersecting && !kStopped) kTimer = setInterval(() => kShow((ks + 1) % 6), 3200); }, { threshold: 0.4 }).observe($("#ikitchen"));
 
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function mountDemo(root, start = 0) {
+  const kpis = root.querySelector(".mock-kpis"), steps = root.querySelector(".mock-steps"), panel = root.querySelector(".mock-panel");
+  let cur = 0, timer, stopped = false;
+  kpis.innerHTML = kit.kpis.map(([l, v]) => `<div><span>${l}</span><b>${v}</b></div>`).join("");
+  steps.innerHTML = kit.stages.map(([n], i) => `<button type="button" role="tab" data-i="${i}"><i>${i + 1}</i>${n}</button>`).join("");
+  const show = (i) => {
+    cur = i;
+    const [n, d, f, chip] = kit.stages[i];
+    steps.querySelectorAll("button").forEach((b, k) => { b.classList.toggle("on", k === i); b.classList.toggle("done", k < i); b.setAttribute("aria-selected", k === i); });
+    panel.innerHTML = `<h4>Paso ${i + 1} de 6 · ${n}</h4><p>${d}</p><div class="mock-fields">${f.map(([l, v]) => `<div><span>${l}</span><b>${v}</b></div>`).join("")}</div><span class="mock-chip">${chip}</span>`;
+    panel.style.animation = "none"; panel.offsetHeight; panel.style.animation = "";
+  };
+  const stop = () => clearInterval(timer);
+  const play = () => { if (stopped || reduceMotion) return; stop(); timer = setInterval(() => show((cur + 1) % kit.stages.length), 3200); };
+  steps.onclick = (e) => { const b = e.target.closest("button"); if (!b) return; stopped = true; stop(); show(+b.dataset.i); };
+  show(start);
+  return { show, play, stop, get index() { return cur; } };
+}
+
+const inlineDevice = document.querySelector(".demo .device");
+const demo = mountDemo(inlineDevice);
+new IntersectionObserver(([e]) => { demo.stop(); if (e.isIntersecting) demo.play(); }, { threshold: 0.4 }).observe($("#ikitchen"));
+
+// Botón "pantalla completa": el iPad crece desde su lugar y se abre la app
+(() => {
+  const btn = $("#expandDemo");
+  let ov, bg, big, api, opener, k = 1, closing = false;
+  const ease = "cubic-bezier(.22,.9,.24,1)";
+  const offset = (r) => ({ dx: r.left + r.width / 2 - innerWidth / 2, dy: r.top + r.height / 2 - innerHeight / 2 });
+
+  const open = () => {
+    if (ov) return;
+    opener = document.activeElement;
+    demo.stop();
+    const r = inlineDevice.getBoundingClientRect(), w = inlineDevice.offsetWidth;
+    ov = document.createElement("div");
+    ov.className = "overlay"; ov.setAttribute("role", "dialog"); ov.setAttribute("aria-modal", "true"); ov.setAttribute("aria-label", "I-Kitchen a pantalla completa (demo con datos ficticios)");
+    bg = document.createElement("div"); bg.className = "ov-bg";
+    const close = document.createElement("button");
+    close.type = "button"; close.className = "ov-close"; close.innerHTML = 'Cerrar <span aria-hidden="true">✕</span>';
+    big = inlineDevice.cloneNode(true);
+    big.classList.add("big", "entering");
+    big.querySelectorAll("[id]").forEach((e) => e.removeAttribute("id"));
+    big.style.width = w + "px";
+    big.querySelector(".screen").insertAdjacentHTML("beforeend", '<div class="splash" aria-hidden="true"><span>IK</span><b>I-Kitchen</b></div>');
+    ov.append(bg, big, close);
+    document.body.append(ov);
+    document.body.classList.add("lock");
+    const hh = big.offsetHeight;
+    big.style.margin = `${-hh / 2}px 0 0 ${-w / 2}px`;
+    k = Math.max(0.5, Math.min((innerWidth - 48) / w, (innerHeight - 110) / hh, 2));
+    api = mountDemo(big, demo.index);
+    const { dx, dy } = offset(r);
+    inlineDevice.style.visibility = "hidden";
+    const dur = reduceMotion ? 0 : 750;
+    bg.animate([{ opacity: 0 }, { opacity: 1 }], { duration: dur ? 400 : 0, fill: "forwards" });
+    big.animate([{ transform: `translate(${dx}px,${dy}px) scale(1)` }, { transform: `translate(0,0) scale(${k})` }], { duration: dur, easing: ease, fill: "forwards" });
+    close.animate([{ opacity: 0 }, { opacity: 1 }], { duration: dur ? 300 : 0, delay: dur ? 450 : 0, fill: "backwards" });
+    setTimeout(() => big && big.classList.remove("entering"), dur ? 2400 : 0);
+    setTimeout(() => api && api.play(), dur ? 3200 : 800);
+    close.focus();
+  };
+
+  const finish = () => {
+    ov.remove(); ov = big = api = null; closing = false;
+    inlineDevice.style.visibility = "";
+    document.body.classList.remove("lock");
+    demo.play();
+    opener && opener.focus && opener.focus();
+  };
+
+  const close = () => {
+    if (!ov || closing) return;
+    closing = true; api.stop();
+    big.classList.remove("entering"); big.classList.add("leaving");
+    const dur = reduceMotion ? 0 : 520;
+    big.getAnimations().forEach((a) => a.cancel());
+    const { dx, dy } = offset(inlineDevice.getBoundingClientRect());
+    bg.getAnimations().forEach((a) => a.cancel());
+    bg.animate([{ opacity: 1 }, { opacity: 0 }], { duration: dur, fill: "forwards" });
+    const an = big.animate([{ transform: `translate(0,0) scale(${k})` }, { transform: `translate(${dx}px,${dy}px) scale(1)` }], { duration: dur, easing: ease, fill: "forwards" });
+    an.onfinish = finish;
+    if (!dur) finish();
+  };
+
+  btn.addEventListener("click", open);
+  document.addEventListener("click", (e) => { if (ov && (e.target === bg || e.target.closest(".ov-close"))) close(); });
+  document.addEventListener("keydown", (e) => {
+    if (!ov) return;
+    if (e.key === "Escape") close();
+    if (e.key === "Tab") {
+      const f = [...ov.querySelectorAll("button")].filter((x) => x.offsetParent !== null);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  addEventListener("resize", () => { if (ov && !closing) { closing = true; finish(); } });
+})();
 
 // Menú móvil
 (() => {

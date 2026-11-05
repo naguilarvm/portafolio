@@ -111,9 +111,9 @@
         </div>
       </div>
       <div class="demo" aria-label="Demo interactiva de I-Kitchen con datos ficticios">
-        <div class="device">
+        <div class="device ipad">
           <div class="screen">
-            <div class="mock-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url">i-kitchen.demo</span></div>
+            <div class="statusbar"><span>9:41</span><span class="sb-r"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M2.5 9a14 14 0 0 1 19 0M6 12.8a9 9 0 0 1 12 0M9.4 16.5a4.2 4.2 0 0 1 5.2 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg><svg viewBox="0 0 28 14" width="24" height="12" aria-hidden="true"><rect x=".5" y=".5" width="23" height="13" rx="3.5" fill="none" stroke="currentColor" opacity=".45"/><rect x="2.5" y="2.5" width="19" height="9" rx="2" fill="currentColor"/><rect x="25" y="4.5" width="2" height="5" rx="1" fill="currentColor" opacity=".45"/></svg></span></div>
             <div class="app">
               <nav class="rail" aria-hidden="true">
                 <span class="mark">IK</span>
@@ -124,16 +124,19 @@
               <div class="app-main">
                 <header class="app-top"><div><small>Inicio / Dashboard general</small><b>I-Kitchen</b></div><span class="cc" aria-hidden="true"><i class="on">CL</i><i>CO</i></span></header>
                 <div class="mock-body">
-                  <div class="mock-kpis" id="mkKpis"></div>
-                  <div class="mock-steps" id="mkSteps" role="tablist"></div>
-                  <div class="mock-panel" id="mkPanel" aria-live="polite"></div>
+                  <div class="mock-kpis"></div>
+                  <div class="mock-steps" role="tablist"></div>
+                  <div class="mock-panel" aria-live="polite"></div>
                 </div>
               </div>
             </div>
+            <span class="home-ind" aria-hidden="true"></span>
           </div>
-          <div class="base" aria-hidden="true"></div>
         </div>
-        <p class="mock-note">Demo con datos ficticios. Toca una etapa para recorrer el proceso.</p>
+        <div class="demo-actions">
+          <button type="button" class="btn expand" id="expandDemo" aria-haspopup="dialog"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg>Abrir la app a pantalla completa</button>
+          <p class="mock-note">Demo con datos ficticios. Toca una etapa para recorrer el proceso.</p>
+        </div>
       </div>
     </article>
     <div class="projects">

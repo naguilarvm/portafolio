@@ -397,3 +397,73 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .app-top{padding:9px 12px}.app-top small{display:none}
 .device .mock-bar .url{padding:3px 18px}
 }
+
+/* ===== iPad + pantalla completa ===== */
+.device.ipad{padding:14px;border-radius:34px;background:linear-gradient(150deg,#3a4150,#171b24);box-shadow:0 34px 60px -24px rgba(10,16,30,.6),0 0 0 1px rgba(255,255,255,.08) inset,0 0 0 2px #0b0e15}
+.device.ipad::before{top:6px;width:6px;height:6px;margin-left:-3px;background:#2d3544;box-shadow:0 0 0 2px #1a2030}
+.device.ipad .screen{position:relative;border:0;border-radius:22px;background:#f1f3f8}
+.statusbar{display:flex;align-items:center;justify-content:space-between;padding:8px 20px 6px;background:#fff;color:#0f172a;font-size:11px;font-weight:600}
+.sb-r{display:inline-flex;align-items:center;gap:7px}
+.home-ind{position:absolute;left:50%;bottom:6px;width:112px;height:4px;margin-left:-56px;border-radius:4px;background:rgba(15,23,42,.32)}
+.device.ipad .app{min-height:360px;padding-bottom:16px}
+.demo-actions{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:22px}
+.demo-actions .mock-note{margin:0}
+.btn.expand{display:inline-flex;align-items:center;gap:9px}
+.btn.expand svg{margin:0}
+.lock{overflow:hidden}
+.overlay{position:fixed;inset:0;z-index:100}
+.ov-bg{position:absolute;inset:0;background:rgba(7,11,20,.8);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.overlay .big{position:fixed;left:50%;top:50%;z-index:2;margin:0;box-shadow:0 60px 120px -30px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08) inset,0 0 0 2px #0b0e15;transform-origin:center}
+.ov-close{position:absolute;top:18px;right:22px;z-index:3;display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.1);color:#fff;font:600 14px Inter,system-ui,sans-serif;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .2s}
+.ov-close:hover{background:rgba(255,255,255,.2)}
+.splash{position:absolute;inset:0;z-index:6;display:grid;place-content:center;justify-items:center;gap:14px;border-radius:inherit;background:linear-gradient(160deg,#25418a,#0f1a38);color:#fff;animation:splashOut .6s .6s cubic-bezier(.4,0,.2,1) forwards}
+.splash span{display:grid;place-items:center;width:78px;height:78px;border-radius:20px;background:#fff;color:#14203a;font-size:28px;font-weight:800;letter-spacing:.02em;box-shadow:0 14px 34px rgba(0,0,0,.35);animation:logoPop .6s .1s cubic-bezier(.2,1.4,.3,1) both}
+.splash b{font-size:15px;letter-spacing:.04em;opacity:.9}
+@keyframes splashOut{to{opacity:0;transform:scale(1.18);visibility:hidden}}
+@keyframes logoPop{from{opacity:0;transform:scale(.6)}}
+.big.entering .app-main{animation:appIn .7s .85s cubic-bezier(.2,.8,.2,1) both}
+.big.entering .mock-kpis div{animation:rise .55s both}
+.big.entering .mock-kpis div:nth-child(1){animation-delay:1.0s}.big.entering .mock-kpis div:nth-child(2){animation-delay:1.08s}.big.entering .mock-kpis div:nth-child(3){animation-delay:1.16s}.big.entering .mock-kpis div:nth-child(4){animation-delay:1.24s}
+.big.entering .mock-steps{animation:rise .6s 1.3s both}
+.big.entering .mock-panel{animation:rise .6s 1.45s both}
+.big.leaving .splash{display:none}
+@keyframes appIn{from{opacity:0;transform:scale(.985)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+@media(max-width:900px){.device.ipad{padding:10px;border-radius:26px}.device.ipad .screen{border-radius:17px}}
+@media(max-width:700px){.btn.expand{display:none}}
+@media(prefers-reduced-motion:reduce){.splash{display:none}.big.entering .app-main,.big.entering .mock-kpis div,.big.entering .mock-steps,.big.entering .mock-panel{animation:none}}
+
+/* iPad horizontal: contenido más compacto y estable */
+.device.ipad .app-top{padding:8px 16px}
+.device.ipad .mock-body{padding:12px 16px 14px}
+.device.ipad .mock-kpis{gap:10px}
+.device.ipad .mock-kpis div{padding:8px 12px}
+.device.ipad .mock-kpis b{font-size:22px}
+.device.ipad .mock-steps{margin:12px 0 10px;gap:8px}
+.device.ipad .mock-panel{padding:14px 16px;min-height:178px}
+.device.ipad .mock-panel h4{font-size:15px}
+.device.ipad .mock-panel p{margin:0 0 10px;font-size:12.5px}
+.device.ipad .mock-fields{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.device.ipad .mock-fields div{padding:7px 11px}
+.device.ipad .mock-chip{margin-top:10px}
+.device.ipad .app{min-height:0}
+@media(max-width:900px){.device.ipad .mock-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.device.ipad .mock-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.device.ipad .mock-fields{grid-template-columns:minmax(0,1fr)}}
+
+/* iPad v2: más horizontal */
+.statusbar{padding:5px 20px 4px}
+.device.ipad .app-top{padding:6px 16px}.device.ipad .app-top b{font-size:14px}
+.device.ipad .mock-body{padding:10px 16px 12px}
+.device.ipad .mock-kpis div{padding:6px 11px}
+.device.ipad .mock-kpis span{font-size:9.5px;line-height:1.15}
+.device.ipad .mock-kpis b{font-size:19px;line-height:1.2}
+.device.ipad .mock-steps{margin:10px 0 8px;gap:6px}
+.device.ipad .mock-steps button{padding:5px 10px 5px 6px}
+.device.ipad .mock-panel{position:relative;padding:12px 14px;min-height:150px}
+.device.ipad .mock-panel h4{padding-right:170px}
+.device.ipad .mock-panel p{margin:0 0 8px}
+.device.ipad .mock-chip{position:absolute;top:12px;right:14px;margin:0}
+.device.ipad .mock-fields{gap:6px}
+.device.ipad .mock-fields div{padding:6px 10px}
+.device.ipad .mock-fields b{font-size:13px}
+@media(max-width:900px){.device.ipad .mock-chip{position:static;display:inline-block;margin-top:10px}.device.ipad .mock-panel h4{padding-right:0}}
