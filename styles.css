@@ -510,3 +510,11 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .fb-photos{grid-template-columns:1fr}
 .fb-photos figure{aspect-ratio:16/10}
 }
+
+/* herramientas centradas en la tarjeta completa; nota arriba del iPad */
+.feature-tools{grid-column:1/-1;padding-top:24px;border-top:1px solid var(--line)}
+.feature-tools .phases{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 56px;text-align:center}
+.feature-tools .phases small{margin-bottom:10px}
+.feature-tools .tools{justify-content:center;padding-top:0}
+.demo .mock-note.top{margin:0 0 14px;font-size:11.5px;color:var(--mut);text-align:center}
+.demo-actions{margin-top:20px}
