@@ -94,3 +94,12 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches)
   set(0);
   if (!matchMedia("(prefers-reduced-motion: reduce)").matches) play();
 })();
+
+// Menú móvil
+(() => {
+  const nav = document.querySelector(".nav"), btn = $("#menu");
+  const set = (open) => { nav.classList.toggle("open", open); btn.setAttribute("aria-expanded", open); btn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú"); };
+  btn.onclick = () => set(!nav.classList.contains("open"));
+  nav.querySelectorAll("nav a").forEach((a) => a.addEventListener("click", () => set(false)));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); });
+})();
