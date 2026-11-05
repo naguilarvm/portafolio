@@ -106,3 +106,8 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .mock-note{margin:10px 0 0;font-size:11px;color:var(--mut);text-align:center}
 .projects{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
 @media(max-width:900px){.feature{grid-template-columns:1fr;padding:22px}.mock-kpis{grid-template-columns:repeat(2,1fr)}}
+
+.job-head{display:flex;align-items:center;gap:14px;margin:6px 0 12px}
+.job-head h3{margin:0}
+.co-logo{flex:none;display:grid;place-items:center;width:72px;height:48px;border-radius:12px;background:#fff;border:1px solid var(--line);padding:6px}
+.co-logo img{width:100%;height:100%;object-fit:contain}
