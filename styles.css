@@ -208,3 +208,13 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 
 .hero .cta{justify-content:center}
 .hero .flow{justify-self:stretch;width:100%}
+@media(min-width:901px){
+.hero{grid-template-columns:300px minmax(0,1fr);justify-items:start;text-align:left;gap:30px 100px;align-items:center}
+.hero .status{margin-inline:0}
+.hero .role,.hero .cta{justify-content:flex-start}
+.hero .lead{margin:0}
+.hero .flow{grid-column:1/-1}
+.hero-visual{justify-self:center}
+.f1{top:10%;left:-44px}.f2{top:36%;right:-56px}.f3{bottom:24%;left:-40px}.f4{top:-14px;right:18px}
+}
+@media(min-width:901px) and (max-width:1199px){.f1{left:-8px}.f3{left:-6px}.f2{right:-40px}}
