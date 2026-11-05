@@ -28,7 +28,7 @@ document.querySelectorAll('section:not(.hero), .stats').forEach((el) => { el.cla
 
 // Herramientas: filtro por categoría y tarjetas con logo
 const tools = [
-  ["Power BI", "powerbi", "Datos y BI"], ["Looker Studio", "looker", "Datos y BI"], ["Excel", "excel", "Datos y BI", "Avanzado"], ["SQL", "sql", "Datos y BI", "Intermedio"],
+  ["Power BI", "powerbi", "Datos y BI"], ["Looker Studio", "looker", "Datos y BI"], ["Excel", "excel", "Datos y BI", "Avanzado"], ["SQL", "sql", "Datos y BI", "Intermedio"], ["BigQuery", "bigquery", "Datos y BI"],
   ["SAP S/4HANA", "sap", "ERP y finanzas"], ["Microsoft Dynamics NAV", "dynamics", "ERP y finanzas"],
   ["Power Apps", "powerapps.png", "Automatización"], ["Power Automate", "powerautomate.png", "Automatización"], ["SharePoint", "sharepoint", "Automatización"],
   ["Claude Code", "claude", "IA"], ["Codex", "codex", "IA"], ["Gemini", "gemini", "IA"], ["Google AI Studio", "aistudio", "IA"], ["Google Flow", "flow", "IA"], ["Microsoft Copilot", "copilot", "IA"],
