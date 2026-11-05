@@ -77,17 +77,31 @@
   <section id="proyectos">
     <h2>Proyectos</h2>
     <p class="sub">Un proyecto destacado de cada experiencia laboral.</p>
-    <div class="projects">
-      <article class="project">
+    
+    <article class="feature" id="ikitchen">
+      <div class="feature-copy">
         <span class="co">IKEA · Services Specialist</span>
-        <h3>App web con IA para gestionar proyectos de cocinas</h3>
-        <dl>
-          <dt>Contexto</dt><dd>La gestión de proyectos de cocinas en Chile y Colombia partió con una solución inicial en Power Apps.</dd>
-          <dt>Qué hice</dt><dd>Evolucioné esa solución a una aplicación web con apoyo de IA generativa y capacité a los equipos para usarla.</dd>
-          <dt>Resultado</dt><dd>Más de 100 colaboradores usan la herramienta y 70 fueron capacitados.</dd>
-        </dl>
+        <h3>I-Kitchen: todo el proyecto de cocina en una sola app</h3>
+        <p>La gestión de proyectos de cocinas en Chile y Colombia partió como una solución en Power Apps. La evolucioné a una aplicación web con apoyo de IA generativa y capacité a los equipos para usarla.</p>
+        <ul class="points">
+          <li><b>Un proyecto, seis etapas.</b> Desde la planificación hasta el post venta, con el estado visible en todo momento.</li>
+          <li><b>Panel con indicadores</b> de proyectos planificados, mediciones, compras y despachos, e instalaciones.</li>
+          <li><b>Búsqueda rápida</b> por cliente, RUT o ID, y buzón de sugerencias para seguir mejorando la herramienta.</li>
+        </ul>
+        <div class="metrics"><div><b>100+</b><span>colaboradores la usan</span></div><div><b>70</b><span>capacitados</span></div><div><b>2</b><span>países: Chile y Colombia</span></div></div>
         <div class="tools"><span>IA generativa</span><span>Power Apps</span><span>Power Automate</span></div>
-      </article>
+      </div>
+      <div class="mock" aria-label="Demo interactiva de I-Kitchen con datos ficticios">
+        <div class="mock-bar"><i></i><i></i><i></i><span>i-kitchen · demo</span></div>
+        <div class="mock-body">
+          <div class="mock-kpis" id="mkKpis"></div>
+          <div class="mock-steps" id="mkSteps" role="tablist"></div>
+          <div class="mock-panel" id="mkPanel" aria-live="polite"></div>
+          <p class="mock-note">Demo con datos ficticios. Toca una etapa para recorrer el proceso.</p>
+        </div>
+      </div>
+    </article>
+    <div class="projects">
       <article class="project">
         <span class="co">IKEA · Finance Administrative</span>
         <h3>Trazabilidad del proceso de compras de Colombia</h3>
