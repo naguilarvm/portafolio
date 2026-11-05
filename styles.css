@@ -291,3 +291,26 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .flow-steps li.done .n::after{content:"✓";font-size:15px;font-weight:700;line-height:1}
 .flow-steps li.done b{color:var(--ink)}
 .track .fill{background:rgba(255,255,255,.45)}
+
+/* ===== v7: cadena de procesos en chevrones ===== */
+#flow{padding:22px 24px 24px;border-radius:22px}
+#flow .flow-title{margin:0 0 16px}
+#flow .flow-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;text-align:left;position:relative;z-index:1}
+#flow .flow-steps li{position:relative;display:block;margin-left:-12px;padding:16px 28px 16px 36px;background:rgba(255,255,255,.05);color:var(--ink);cursor:pointer;transition:background .35s,color .35s;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%,18px 50%)}
+#flow .flow-steps li:first-child{margin-left:0;padding-left:22px;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%)}
+#flow .flow-steps li:last-child{padding-right:22px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,18px 50%)}
+#flow .flow-steps li:not(.on):hover{background:rgba(255,255,255,.17)}
+#flow .flow-steps li.done{background:rgba(255,255,255,.12)}
+#flow .flow-steps li.on{background:#f4f6f9;color:#15202e}
+#flow .n{display:block;width:auto;height:auto;margin:0 0 6px;border:0;border-radius:0;background:none;box-shadow:none;transform:none;font-size:11px;font-weight:700;letter-spacing:.14em;color:inherit;opacity:.6}
+#flow .n::before{content:"0"}
+#flow li.done .n{font-size:11px;color:inherit}
+#flow li.done .n::after{content:" \2713";font-size:11px;line-height:inherit}
+#flow li.on .n{background:none;border:0;box-shadow:none;transform:none;color:#3f5fae;opacity:1}
+#flow .flow-steps b{display:block;font-size:15px;color:inherit}
+#flow li.on b{color:#15202e}
+#flow .flow-steps small{display:block;margin-top:2px;font-size:12.5px;line-height:1.35;color:inherit;opacity:.75}
+@media(max-width:900px){
+#flow .flow-steps{grid-template-columns:1fr;gap:8px}
+#flow .flow-steps li,#flow .flow-steps li:first-child,#flow .flow-steps li:last-child{margin-left:0;padding:14px 18px;border-radius:12px;clip-path:none}
+}
