@@ -231,3 +231,10 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .hero .flow{background:rgba(18,27,48,.72)}
 .hero .badge{background:#f2f5fb;color:#0a1020}
 .hero .status{background:rgba(18,27,48,.8)}
+
+/* transición suave de la banda oscura al fondo de la página */
+:root{--page:#fbfbfa}
+:root[data-theme=dark]{--page:#0b0d12}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--page:#0b0d12}}
+.hero{padding-bottom:110px}
+.hero-bg{bottom:-80px;border-bottom:0;background:linear-gradient(180deg,#0a1020 0,#0a1020 calc(100% - 190px),color-mix(in srgb,#0a1020 62%,var(--page)) calc(100% - 130px),color-mix(in srgb,#0a1020 22%,var(--page)) calc(100% - 65px),var(--page) 100%)}
