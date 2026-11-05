@@ -174,3 +174,11 @@ new IntersectionObserver(([e]) => { demo.stop(); if (e.isIntersecting) demo.play
   nav.querySelectorAll("nav a").forEach((a) => a.addEventListener("click", () => set(false)));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); });
 })();
+
+// Tarjeta que gira (en pantallas táctiles, al tocarla)
+(() => {
+  const card = document.querySelector(".flip");
+  if (!card) return;
+  card.addEventListener("click", (e) => { if (matchMedia("(hover: none)").matches && !e.target.closest("a")) card.classList.toggle("flipped"); });
+  card.addEventListener("keydown", (e) => { if (e.key === "Escape") card.blur(); });
+})();
