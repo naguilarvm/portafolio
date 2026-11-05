@@ -26,16 +26,23 @@ function count(el) {
 }
 document.querySelectorAll('section:not(.hero), .stats').forEach((el) => { el.classList.add('reveal'); io.observe(el); });
 
-// Stack agrupado por categoría
-const stack = [
-  ["Datos y BI", [["Power BI", "powerbi"], ["Looker Studio", "looker"], ["Excel (avanzado)", "excel"], ["SQL", "sql"]]],
-  ["ERP y finanzas", [["SAP S/4HANA", "sap"], ["Microsoft Dynamics NAV", "dynamics"]]],
-  ["Automatización y apps", [["Power Apps", "powerapps.png"], ["Power Automate", "powerautomate.png"], ["SharePoint", "sharepoint"]]],
-  ["IA", [["Claude Code", "claude"], ["Codex", "codex"], ["Gemini", "gemini"], ["Google AI Studio", "aistudio"]]],
+// Herramientas: filtro por categoría y tarjetas con logo
+const tools = [
+  ["Power BI", "powerbi", "Datos y BI"], ["Looker Studio", "looker", "Datos y BI"], ["Excel", "excel", "Datos y BI", "Avanzado"], ["SQL", "sql", "Datos y BI", "Intermedio"],
+  ["SAP S/4HANA", "sap", "ERP y finanzas"], ["Microsoft Dynamics NAV", "dynamics", "ERP y finanzas"],
+  ["Power Apps", "powerapps.png", "Automatización"], ["Power Automate", "powerautomate.png", "Automatización"], ["SharePoint", "sharepoint", "Automatización"],
+  ["Claude Code", "claude", "IA"], ["Codex", "codex", "IA"], ["Gemini", "gemini", "IA"], ["Google AI Studio", "aistudio", "IA"],
 ];
-$("#chips").innerHTML = stack.map(([g, items]) =>
-  `<div class="group"><h3>${g}</h3><div class="items">${items.map(([n, i]) =>
-    `<span class="chip">${i ? `<img src="logos/${i.includes(".") ? i : i + ".svg"}" alt="" width="20" height="20" loading="lazy"${i === "codex" ? " class=\"mono\"" : ""}>` : ""}${n}</span>`).join("")}</div></div>`).join("");
+const cats = ["Todas", ...new Set(tools.map((t) => t[2]))];
+$("#filters").innerHTML = cats.map((c, i) => `<button role="tab" aria-selected="${i === 0}" data-c="${c}">${c}<em>${c === "Todas" ? tools.length : tools.filter((t) => t[2] === c).length}</em></button>`).join("");
+$("#tiles").innerHTML = tools.map(([n, i, c, lv]) =>
+  `<div class="tile" data-c="${c}"><span class="logo-box"><img src="logos/${i.includes(".") ? i : i + ".svg"}" alt="" width="28" height="28" loading="lazy"${i === "codex" ? ' class="mono"' : ""}></span><div><b>${n}</b><small>${c}</small></div>${lv ? `<span class="lvl">${lv}</span>` : ""}</div>`).join("");
+$("#filters").onclick = (e) => {
+  const b = e.target.closest("button");
+  if (!b) return;
+  document.querySelectorAll("#filters button").forEach((x) => x.setAttribute("aria-selected", x === b));
+  document.querySelectorAll("#tiles .tile").forEach((t) => t.classList.toggle("off", b.dataset.c !== "Todas" && t.dataset.c !== b.dataset.c));
+};
 
 // scroll-spy: marca el link de la sección visible
 const links=[...document.querySelectorAll(".nav nav a")];
