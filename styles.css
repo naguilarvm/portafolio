@@ -518,3 +518,7 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .feature-tools .tools{justify-content:center;padding-top:0}
 .demo .mock-note.top{margin:0 0 14px;font-size:11.5px;color:var(--mut);text-align:center}
 .demo-actions{margin-top:20px}
+
+.feature-tools .metrics{justify-content:center;gap:14px 56px;margin:0 0 24px;text-align:center}
+.feature-tools .metrics b{font-size:34px}
+.feature-tools .metrics span{font-size:13px}
