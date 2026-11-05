@@ -182,3 +182,11 @@ new IntersectionObserver(([e]) => { demo.stop(); if (e.isIntersecting) demo.play
   card.addEventListener("click", (e) => { if (matchMedia("(hover: none)").matches && !e.target.closest("a")) card.classList.toggle("flipped"); });
   card.addEventListener("keydown", (e) => { if (e.key === "Escape") card.blur(); });
 })();
+
+// Índice de proyectos: marca el proyecto visible
+(() => {
+  const links = [...document.querySelectorAll(".proj-index a")], boxes = [...document.querySelectorAll(".proj")];
+  if (!links.length) return;
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) links.forEach((a) => a.classList.toggle("on", a.dataset.t === e.target.id)); }), { rootMargin: "-35% 0px -55% 0px" });
+  boxes.forEach((b) => io.observe(b));
+})();
