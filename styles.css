@@ -274,3 +274,14 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .hero .flow{background:rgba(27,47,106,.62)}
 .hero .badge{background:#fff;color:#13214f}
 .hero .status{background:rgba(27,47,106,.7)}
+
+/* v6: pizarra azul-grisácea, sobria */
+.hero{--bg:#212d3c;--card:#2b3b4e;--ink:#f4f6f9;--mut:#bdc7d4;--line:#3d4e64;--acc:#9fb9f4;--acc-soft:rgba(159,185,244,.15);--glow:rgba(120,150,200,.28);--shadow:0 1px 2px rgba(8,14,24,.4),0 12px 30px rgba(8,14,24,.32)}
+.hero-bg{background:linear-gradient(165deg,#37495f 0%,#283648 48%,#1d2837 100%)}
+.hero-bg .g1{background:rgba(120,150,205,.26)}
+.hero-bg .g2{background:rgba(80,165,185,.12)}
+.hero .btn.primary{color:#15202e}
+.hero .btn:not(.primary){border-color:#506580}
+.hero .flow{background:rgba(33,45,60,.62)}
+.hero .badge{background:#fff;color:#15202e}
+.hero .status{background:rgba(33,45,60,.7)}
