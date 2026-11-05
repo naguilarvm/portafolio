@@ -31,7 +31,7 @@ const tools = [
   ["Power BI", "powerbi", "Datos y BI"], ["Looker Studio", "looker", "Datos y BI"], ["Excel", "excel", "Datos y BI", "Avanzado"], ["SQL", "sql", "Datos y BI", "Intermedio"],
   ["SAP S/4HANA", "sap", "ERP y finanzas"], ["Microsoft Dynamics NAV", "dynamics", "ERP y finanzas"],
   ["Power Apps", "powerapps.png", "Automatización"], ["Power Automate", "powerautomate.png", "Automatización"], ["SharePoint", "sharepoint", "Automatización"],
-  ["Claude Code", "claude", "IA"], ["Codex", "codex", "IA"], ["Gemini", "gemini", "IA"], ["Google AI Studio", "aistudio", "IA"],
+  ["Claude Code", "claude", "IA"], ["Codex", "codex", "IA"], ["Gemini", "gemini", "IA"], ["Google AI Studio", "aistudio", "IA"], ["Google Flow", "video", "IA"],
 ];
 const cats = ["Todas", ...new Set(tools.map((t) => t[2]))];
 $("#filters").innerHTML = cats.map((c, i) => `<button role="tab" aria-selected="${i === 0}" data-c="${c}">${c}<em>${c === "Todas" ? tools.length : tools.filter((t) => t[2] === c).length}</em></button>`).join("");
