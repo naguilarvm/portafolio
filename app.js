@@ -10,18 +10,6 @@ $('#theme').onclick = () => {
 };
 $('#y').textContent = new Date().getFullYear();
 
-// Texto animado
-const words = ['datos accionables', 'dashboards claros', 'procesos automatizados', 'decisiones a tiempo'];
-let wi = 0, ci = 0, del = false;
-(function type() {
-  const w = words[wi];
-  $('#typed').textContent = w.slice(0, ci);
-  if (!del && ci === w.length) { del = true; return setTimeout(type, 1400); }
-  if (del && ci === 0) { del = false; wi = (wi + 1) % words.length; }
-  ci += del ? -1 : 1;
-  setTimeout(type, del ? 35 : 70);
-})();
-
 // Contadores y reveal
 const io = new IntersectionObserver((es) => es.forEach((e) => {
   if (!e.isIntersecting) return;

@@ -13,8 +13,6 @@ section{padding:72px 0 8px}
 h1{font-size:clamp(32px,6vw,58px);line-height:1.1;margin:.2em 0;letter-spacing:-.02em}
 h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--acc2) 62%)}
 :root[data-theme=dark] h1 em{background:linear-gradient(transparent 62%,#6b5f00 62%)}
-#typed{color:var(--acc)}.caret{display:inline-block;width:3px;height:.9em;background:var(--acc);margin-left:3px;vertical-align:-.1em;animation:b 1s steps(1) infinite}
-@keyframes b{50%{opacity:0}}
 h2{font-size:28px;margin:0 0 6px;letter-spacing:-.01em}
 .eyebrow{color:var(--mut);font-size:14px;margin:0}.lead{max-width:62ch;color:var(--mut);font-size:18px}.sub{color:var(--mut);max-width:70ch;margin:0 0 24px}
 .hero{padding-top:64px;display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:center}
