@@ -29,10 +29,9 @@ document.querySelectorAll('section:not(.hero), .stats').forEach((el) => { el.cla
 // Stack agrupado por categoría
 const stack = [
   ["Datos y BI", [["Power BI", "powerbi"], ["Looker Studio", "looker"], ["Excel (avanzado)", "excel"], ["SQL", "sql"]]],
-  ["ERP y finanzas", [["SAP S/4HANA", "sap"], ["Microsoft Dynamics NAV", "dynamics"], ["Análisis financiero"]]],
+  ["ERP y finanzas", [["SAP S/4HANA", "sap"], ["Microsoft Dynamics NAV", "dynamics"]]],
   ["Automatización y apps", [["Power Apps", "powerapps.png"], ["Power Automate", "powerautomate.png"], ["SharePoint", "sharepoint"]]],
   ["IA", [["Claude Code", "claude"], ["Codex", "codex"], ["Gemini", "gemini"], ["Google AI Studio", "aistudio"]]],
-  ["Metodologías", [["Six Sigma"], ["Metodologías ágiles"]]],
 ];
 $("#chips").innerHTML = stack.map(([g, items]) =>
   `<div class="group"><h3>${g}</h3><div class="items">${items.map(([n, i]) =>

@@ -63,8 +63,6 @@ section:not(.hero) h2::before{counter-increment:sec;content:"0" counter(sec);dis
 :root[data-theme=dark] .chip img.mono{filter:invert(1)}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]) .chip img.mono{filter:invert(1)}}
 .chip:hover{border-color:var(--acc);transform:translateY(-2px)}
-.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:28px}
-.edu div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.edu b{display:block;margin-bottom:2px}.edu span{color:var(--mut);font-size:14px}
 
 .contact{text-align:center;padding-bottom:56px}
 .contact .sub{margin:0 auto 4px}.contact .cta{justify-content:center}
@@ -137,3 +135,11 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .phases{display:grid;gap:12px}
 .phases small{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:6px}
 .phases .tools{margin-top:0}
+.chips{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
+.learn{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.learn-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.learn-card h3{margin:0 0 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+.learn-card ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.learn-card li{display:grid;gap:2px;padding-left:14px;border-left:2px solid var(--acc-soft)}
+.learn-card li:hover{border-color:var(--acc)}
+.learn-card b{font-size:15px;line-height:1.35}.learn-card span{font-size:14px;color:var(--mut)}.learn-card time{font-size:13px;color:var(--acc);font-weight:600}
