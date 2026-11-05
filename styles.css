@@ -54,9 +54,15 @@ section:not(.hero) h2::before{counter-increment:sec;content:"0" counter(sec);dis
 .tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:20px}
 .tools span{font-size:12px;font-weight:500;background:var(--acc-soft);color:var(--acc);border-radius:999px;padding:4px 10px}
 
-.chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 16px;font-size:14px;font-weight:500;transition:all .15s}
-.chip:hover{background:var(--acc);border-color:var(--acc);color:#fff;transform:translateY(-2px)}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.group{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+.group h3{margin:0 0 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+.items{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 14px 8px 10px;font-size:14px;font-weight:500;transition:transform .15s,border-color .15s}
+.chip img{flex:none;object-fit:contain}
+:root[data-theme=dark] .chip img.mono{filter:invert(1)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .chip img.mono{filter:invert(1)}}
+.chip:hover{border-color:var(--acc);transform:translateY(-2px)}
 .edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:28px}
 .edu div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.edu b{display:block;margin-bottom:2px}.edu span{color:var(--mut);font-size:14px}
 

@@ -26,9 +26,17 @@ function count(el) {
 }
 document.querySelectorAll('section:not(.hero), .stats').forEach((el) => { el.classList.add('reveal'); io.observe(el); });
 
-// Stack
-['Power BI', 'Excel (avanzado)', 'SQL', 'Looker Studio', 'SAP S/4HANA', 'Microsoft Dynamics NAV', 'Power Apps', 'Power Automate', 'SharePoint', 'Claude Code', 'Codex', 'Gemini', 'Google AI Studio', 'Six Sigma', 'Metodologías ágiles', 'Análisis financiero']
-  .forEach((s) => $('#chips').insertAdjacentHTML('beforeend', `<span class="chip">${s}</span>`));
+// Stack agrupado por categoría
+const stack = [
+  ["Datos y BI", [["Power BI", "powerbi"], ["Looker Studio", "looker"], ["Excel (avanzado)", "excel"], ["SQL", "sql"]]],
+  ["ERP y finanzas", [["SAP S/4HANA", "sap"], ["Microsoft Dynamics NAV", "dynamics"], ["Análisis financiero"]]],
+  ["Automatización y apps", [["Power Apps", "powerapps"], ["Power Automate", "powerautomate"], ["SharePoint", "sharepoint"]]],
+  ["IA", [["Claude Code", "claude"], ["Codex", "codex"], ["Gemini", "gemini"], ["Google AI Studio", "aistudio"]]],
+  ["Metodologías", [["Six Sigma"], ["Metodologías ágiles"]]],
+];
+$("#chips").innerHTML = stack.map(([g, items]) =>
+  `<div class="group"><h3>${g}</h3><div class="items">${items.map(([n, i]) =>
+    `<span class="chip">${i ? `<img src="logos/${i}.svg" alt="" width="20" height="20" loading="lazy"${i === "codex" ? " class=\"mono\"" : ""}>` : ""}${n}</span>`).join("")}</div></div>`).join("");
 
 // scroll-spy: marca el link de la sección visible
 const links=[...document.querySelectorAll(".nav nav a")];
