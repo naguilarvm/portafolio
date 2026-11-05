@@ -76,3 +76,21 @@ $("#mkSteps").onclick = (e) => { const b = e.target.closest("button"); if (!b) r
 kShow(0);
 if (!matchMedia("(prefers-reduced-motion: reduce)").matches)
   new IntersectionObserver(([e]) => { clearInterval(kTimer); if (e.isIntersecting && !kStopped) kTimer = setInterval(() => kShow((ks + 1) % 6), 3200); }, { threshold: 0.4 }).observe($("#ikitchen"));
+
+// Flujo del hero: paquete que recorre las etapas
+(() => {
+  const flow = $("#flow"), items = [...flow.querySelectorAll("li")];
+  let i = 0, t;
+  const set = (n) => {
+    flow.classList.toggle("reset", n === 0 && i !== 0); i = n; flow.style.setProperty("--i", n);
+    items.forEach((li, k) => { li.classList.toggle("on", k === n); li.classList.toggle("done", k < n); });
+  };
+  const play = () => { clearInterval(t); t = setInterval(() => set((i + 1) % items.length), 2200); };
+  items.forEach((li) => {
+    li.addEventListener("mouseenter", () => { clearInterval(t); set(+li.dataset.i); });
+    li.addEventListener("click", () => { clearInterval(t); set(+li.dataset.i); });
+    li.addEventListener("mouseleave", () => { if (!matchMedia("(prefers-reduced-motion: reduce)").matches) play(); });
+  });
+  set(0);
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) play();
+})();
