@@ -218,3 +218,16 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .f1{top:10%;left:-44px}.f2{top:36%;right:-56px}.f3{bottom:24%;left:-40px}.f4{top:-14px;right:18px}
 }
 @media(min-width:901px) and (max-width:1199px){.f1{left:-8px}.f3{left:-6px}.f2{right:-40px}}
+
+/* ===== HERO: banda oscura estilo centro de control ===== */
+.hero{--bg:#0a1020;--card:#121b30;--ink:#f2f5fb;--mut:#a3aec4;--line:#25304a;--acc:#8ea2ff;--acc-soft:rgba(142,162,255,.14);--glow:rgba(111,140,255,.3);--shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.35);color:var(--ink);padding-bottom:56px}
+.hero-bg{top:0;bottom:0;background:#0a1020;-webkit-mask-image:none;mask-image:none;border-bottom:1px solid #1b2742}
+.hero-bg .grid{background:url(bg-network.svg) center top/600px 400px repeat;opacity:.9;-webkit-mask-image:radial-gradient(ellipse 80% 90% at 55% 40%,#000 20%,transparent 85%);mask-image:radial-gradient(ellipse 80% 90% at 55% 40%,#000 20%,transparent 85%)}
+.hero-bg .g1{background:rgba(94,124,255,.28);top:-260px}
+.hero-bg .g2{background:rgba(34,150,190,.14);left:auto;right:6%;top:200px}
+.hero .btn.primary{color:#0a1020}
+.hero .btn:not(.primary){background:transparent;border-color:#2c3a5c;color:var(--ink)}
+.hero .btn.icon:hover{color:#8ea2ff}
+.hero .flow{background:rgba(18,27,48,.72)}
+.hero .badge{background:#f2f5fb;color:#0a1020}
+.hero .status{background:rgba(18,27,48,.8)}
