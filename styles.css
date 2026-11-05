@@ -262,3 +262,15 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .hero-bg .grid{bottom:0}
 .hero-bg .g1,.hero-bg .g2{max-height:none}
 @media(max-width:700px){.hero-bg{border-radius:0 0 50% 50%/0 0 34px 34px}.hero{padding-bottom:64px}}
+
+/* v5: banda más clara (azul corporativo medio) */
+.hero{--bg:#1b2f6a;--card:#233b7c;--ink:#f6f8fe;--mut:#c6d0ea;--line:#3d5696;--acc:#b4c3ff;--acc-soft:rgba(180,195,255,.17);--glow:rgba(150,175,255,.35);--shadow:0 1px 2px rgba(8,16,48,.35),0 12px 30px rgba(8,16,48,.3)}
+.hero-bg{background:linear-gradient(165deg,#2c4a9c 0%,#1f3777 45%,#182a62 100%)}
+.hero-bg .g1{background:rgba(140,170,255,.32)}
+.hero-bg .g2{background:rgba(70,190,230,.16)}
+.hero-bg .grid{opacity:1}
+.hero .btn.primary{color:#13214f}
+.hero .btn:not(.primary){border-color:#4d68ac}
+.hero .flow{background:rgba(27,47,106,.62)}
+.hero .badge{background:#fff;color:#13214f}
+.hero .status{background:rgba(27,47,106,.7)}
