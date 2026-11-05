@@ -24,8 +24,13 @@ function count(el) {
     if (p < 1) requestAnimationFrame(f);
   })(t0);
 }
-document.querySelectorAll('section, .stats').forEach((el) => { el.classList.add('reveal'); io.observe(el); });
+document.querySelectorAll('section:not(.hero), .stats').forEach((el) => { el.classList.add('reveal'); io.observe(el); });
 
 // Stack
 ['Power BI', 'Excel (avanzado)', 'SQL', 'Looker Studio', 'SAP S/4HANA', 'Microsoft Dynamics NAV', 'Power Apps', 'Power Automate', 'SharePoint', 'Claude Code', 'Codex', 'Gemini', 'Google AI Studio', 'Six Sigma', 'Metodologías ágiles', 'Análisis financiero']
   .forEach((s) => $('#chips').insertAdjacentHTML('beforeend', `<span class="chip">${s}</span>`));
+
+// scroll-spy: marca el link de la sección visible
+const links=[...document.querySelectorAll(".nav nav a")];
+const spy=new IntersectionObserver((es)=>es.forEach((e)=>{if(e.isIntersecting)links.forEach((a)=>a.classList.toggle("on",a.hash==="#"+e.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
+document.querySelectorAll("section[id]").forEach((s)=>spy.observe(s));
