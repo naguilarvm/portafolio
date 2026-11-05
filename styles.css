@@ -285,3 +285,9 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .hero .flow{background:rgba(33,45,60,.62)}
 .hero .badge{background:#fff;color:#15202e}
 .hero .status{background:rgba(33,45,60,.7)}
+
+/* etapas ya recorridas: discretas, con ✓ */
+.flow-steps li.done .n{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.42);color:#e8edf6;font-size:0}
+.flow-steps li.done .n::after{content:"✓";font-size:15px;font-weight:700;line-height:1}
+.flow-steps li.done b{color:var(--ink)}
+.track .fill{background:rgba(255,255,255,.45)}
