@@ -4,7 +4,7 @@ const $ = (s) => document.querySelector(s);
 const root = document.documentElement;
 try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch {}
 $('#theme').onclick = () => {
-  const dark = getComputedStyle(root).getPropertyValue('--bg').trim() === '#0e1014';
+  const dark = (root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark';
   root.dataset.theme = dark ? 'light' : 'dark';
   try { localStorage.setItem('theme', root.dataset.theme); } catch {}
 };
