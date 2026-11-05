@@ -89,7 +89,7 @@ new IntersectionObserver(([e]) => { demo.stop(); if (e.isIntersecting) demo.play
 // Botón "pantalla completa": el iPad crece desde su lugar y se abre la app
 (() => {
   const btn = $("#expandDemo");
-  let ov, bg, big, api, opener, k = 1, closing = false;
+  let ov, bg, big, api, opener, k = 1, s0 = 1, closing = false;
   const ease = "cubic-bezier(.22,.9,.24,1)";
   const offset = (r) => ({ dx: r.left + r.width / 2 - innerWidth / 2, dy: r.top + r.height / 2 - innerHeight / 2 });
 
@@ -106,20 +106,22 @@ new IntersectionObserver(([e]) => { demo.stop(); if (e.isIntersecting) demo.play
     big = inlineDevice.cloneNode(true);
     big.classList.add("big", "entering");
     big.querySelectorAll("[id]").forEach((e) => e.removeAttribute("id"));
-    big.style.width = w + "px";
+    const W2 = Math.min(1020, Math.max(760, innerWidth - 48));
+    big.style.width = W2 + "px";
     big.querySelector(".screen").insertAdjacentHTML("beforeend", '<div class="splash" aria-hidden="true"><span>IK</span><b>I-Kitchen</b></div>');
     ov.append(bg, big, close);
     document.body.append(ov);
     document.body.classList.add("lock");
     const hh = big.offsetHeight;
-    big.style.margin = `${-hh / 2}px 0 0 ${-w / 2}px`;
-    k = Math.max(0.5, Math.min((innerWidth - 48) / w, (innerHeight - 110) / hh, 2));
+    big.style.margin = `${-hh / 2}px 0 0 ${-W2 / 2}px`;
+    k = Math.max(0.4, Math.min((innerWidth - 48) / W2, (innerHeight - 110) / hh, 2));
+    s0 = w / W2;
     api = mountDemo(big, demo.index);
     const { dx, dy } = offset(r);
     inlineDevice.style.visibility = "hidden";
     const dur = reduceMotion ? 0 : 750;
     bg.animate([{ opacity: 0 }, { opacity: 1 }], { duration: dur ? 400 : 0, fill: "forwards" });
-    big.animate([{ transform: `translate(${dx}px,${dy}px) scale(1)` }, { transform: `translate(0,0) scale(${k})` }], { duration: dur, easing: ease, fill: "forwards" });
+    big.animate([{ transform: `translate(${dx}px,${dy}px) scale(${s0})` }, { transform: `translate(0,0) scale(${k})` }], { duration: dur, easing: ease, fill: "forwards" });
     close.animate([{ opacity: 0 }, { opacity: 1 }], { duration: dur ? 300 : 0, delay: dur ? 450 : 0, fill: "backwards" });
     setTimeout(() => big && big.classList.remove("entering"), dur ? 2400 : 0);
     setTimeout(() => api && api.play(), dur ? 3200 : 800);
@@ -143,7 +145,7 @@ new IntersectionObserver(([e]) => { demo.stop(); if (e.isIntersecting) demo.play
     const { dx, dy } = offset(inlineDevice.getBoundingClientRect());
     bg.getAnimations().forEach((a) => a.cancel());
     bg.animate([{ opacity: 1 }, { opacity: 0 }], { duration: dur, fill: "forwards" });
-    const an = big.animate([{ transform: `translate(0,0) scale(${k})` }, { transform: `translate(${dx}px,${dy}px) scale(1)` }], { duration: dur, easing: ease, fill: "forwards" });
+    const an = big.animate([{ transform: `translate(0,0) scale(${k})` }, { transform: `translate(${dx}px,${dy}px) scale(${s0})` }], { duration: dur, easing: ease, fill: "forwards" });
     an.onfinish = finish;
     if (!dur) finish();
   };

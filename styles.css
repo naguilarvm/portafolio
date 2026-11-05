@@ -467,3 +467,19 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 24px 48px;
 .device.ipad .mock-fields div{padding:6px 10px}
 .device.ipad .mock-fields b{font-size:13px}
 @media(max-width:900px){.device.ipad .mock-chip{position:static;display:inline-block;margin-top:10px}.device.ipad .mock-panel h4{padding-right:0}}
+
+/* versión ampliada: lienzo más ancho, las 6 etapas en una sola fila */
+.device.ipad.big .screen{display:flex;flex-direction:column;aspect-ratio:1.55/1}
+.device.ipad.big .app{flex:1;min-height:0}
+.device.ipad.big .app-main{display:flex;flex-direction:column}
+.device.ipad.big .mock-body{flex:1;display:flex;flex-direction:column;padding:16px 22px 22px}
+.device.ipad.big .mock-kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+.device.ipad.big .mock-steps{display:grid;overflow:visible;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:14px 0 12px}
+.device.ipad.big .mock-steps button{white-space:normal;line-height:1.2;font-size:12.5px;padding:7px 10px 7px 7px}
+.device.ipad.big .mock-panel{flex:1;padding:18px 20px}
+.device.ipad.big .mock-panel h4{font-size:17px;padding-right:210px}
+.device.ipad.big .mock-panel p{font-size:13.5px}
+.device.ipad.big .mock-chip{position:absolute;top:16px;right:18px;margin:0}
+.device.ipad.big .mock-fields{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.device.ipad.big .mock-fields div{padding:10px 14px}
+.device.ipad.big .mock-fields b{font-size:15px}
